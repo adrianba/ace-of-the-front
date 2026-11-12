@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#172a2c">
+  <meta name="description" content="A WWI biplane arcade game. There are plenty of good pilots. Then you meet an ace.">
+  <title>Ace of the Front</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23172a2c'/%3E%3Cpath d='M4 13h24v4H4zM14 4h4v24h-4z' fill='%23e4b96c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/game.mjs"></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div class="brand"><span class="roundel" aria-hidden="true"></span><span>FIELD NOTES <b>/</b> WESTERN FRONT, 1917</span></div>
+      <div class="edition">AN ARCADE FLIGHT EXPERIMENT <span>NO. 001</span></div>
+    </header>
+    <section class="title-row" aria-labelledby="game-title">
+      <div><p class="eyebrow">GOOD PILOTS WIN DOGFIGHTS.</p><h1 id="game-title">Then you meet an <em>ace.</em></h1></div>
+      <p class="intro">One British biplane. A sky full of trouble.<br>Keep your nerve. Learn their tells.</p>
+    </section>
+    <section class="flight-deck" aria-label="Ace of the Front game">
+      <div class="instrument-bar">
+        <div class="mission-instrument"><span class="instrument-label">SORTIE <b id="level">01</b></span><strong id="mission">First light</strong></div>
+        <div><span class="instrument-label">AIRFRAME</span><strong id="hull" aria-label="Hull: 5 of 5">▰ ▰ ▰ ▰ ▰</strong></div>
+        <div><span class="instrument-label">SCORE</span><strong id="score">000000</strong></div>
+        <div class="best-instrument"><span class="instrument-label">PERSONAL BEST</span><strong id="best">000000</strong></div>
+        <button id="sound" class="small-button" aria-pressed="true" title="Toggle sound (M)">SOUND ON</button>
+        <button id="pause" class="small-button" disabled title="Pause (P)">PAUSE <span>Ⅱ</span></button>
+      </div>
+      <div class="viewport">
+        <canvas id="sky" width="1100" height="620" tabindex="0" aria-label="Side-scrolling biplane game. Up and Down to fly, Space to shoot, P to pause.">
+          This game needs a browser with Canvas support.
+        </canvas>
+        <div id="overlay" class="overlay">
+          <div class="briefing-card">
+            <p id="overlay-kicker" class="eyebrow">ROYAL FLYING CORPS / FLIGHT BRIEFING</p>
+            <h2 id="overlay-title">Ace of the Front</h2>
+            <p id="overlay-body">Survive the patrol. Watch the balloon belt.<br>When the ace arrives, read the amber aiming line — then move.</p>
+            <div id="briefing-controls" class="briefing-controls"><span><kbd>↑</kbd> <kbd>↓</kbd> ALTITUDE</span><span><kbd>SPACE</kbd> FIRE</span></div>
+            <button id="launch" class="launch-button">Take to the skies <span>→</span></button>
+            <p id="overlay-footnote" class="footnote">ENTER TO LAUNCH · FIVE HULL POINTS · UNLIMITED RETRIES</p>
+          </div>
+        </div>
+        <div id="ace-banner" class="ace-banner" hidden><span>ENEMY ACE APPROACHING</span><strong id="ace-name"></strong><p id="ace-tell"></p></div>
+        <div id="boss-meter" class="boss-meter" hidden><div><span id="boss-label"></span><span id="boss-phase">READ THE TELL</span></div><progress id="boss-hull" max="1" value="1" aria-label="Enemy ace hull"></progress></div>
+        <div id="damage-flash" class="damage-flash"></div>
+        <div class="canvas-caption"><span>RFC · B.E. SQUADRON</span><span id="flight-status">AWAITING YOUR ORDERS</span></div>
+      </div>
+      <div class="mission-progress"><div id="progress-fill"></div></div>
+      <div class="flight-footer"><span id="objective">YOUR ORDERS: SURVIVE THE PATROL. DEFEAT THE ACE.</span><span id="countdown">FIRST LIGHT / SECTOR 01</span></div>
+    </section>
+    <footer class="page-footer"><p><kbd>↑</kbd> <kbd>↓</kbd> / <kbd>W</kbd> <kbd>S</kbd> FLY <span>·</span> <kbd>SPACE</kbd> FIRE <span>·</span> <kbd>P</kbd> PAUSE <span>·</span> <kbd>M</kbd> SOUND</p><p>FICTIONAL ACES. REAL NERVES. <span>PROTOTYPE / ART & AUDIO IN PROGRESS</span></p></footer>
+    <p id="announcements" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p class="noscript">JavaScript is required to fly this game.</p></noscript>
+  </main>
+</body>
+</html>

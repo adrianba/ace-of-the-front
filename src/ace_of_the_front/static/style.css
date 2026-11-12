@@ -1,0 +1,103 @@
+:root {
+  color-scheme: dark;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: #e9e5d7;
+  background: #142426;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at 50% 20%, #263b3b 0, #142426 70%); min-height: 100vh; }
+main { max-width: 1280px; margin: auto; padding: 26px 48px 20px; }
+.masthead, .brand, .title-row, .instrument-bar, .page-footer, .flight-footer { display: flex; align-items: center; justify-content: space-between; }
+.masthead { padding-bottom: 20px; border-bottom: 1px solid #ffffff1a; font-size: 10px; letter-spacing: 1.6px; color: #a7b3ad; }
+.brand { gap: 12px; }
+.brand b { color: #d3ac69; margin: 0 8px; }
+.roundel { width: 23px; height: 23px; border-radius: 50%; background: #ad5146; border: 5px solid #e6dfc9; outline: 4px solid #537b8c; margin: 4px; }
+.edition span { margin-left: 24px; color: #dfb977; }
+.title-row { padding: 30px 0 26px; gap: 20px; }
+.eyebrow { font-size: 10px; letter-spacing: 2.6px; color: #dbb575; margin: 0 0 10px; font-weight: bold; }
+h1 { font-family: Georgia, serif; font-size: clamp(29px, 3.6vw, 46px); font-weight: normal; letter-spacing: -1.5px; margin: 0; }
+h1 em { color: #e6b66e; }
+.intro { color: #b4beb5; font-size: 13px; line-height: 1.8; margin: 0; }
+.flight-deck { width: min(100%, calc((100vh - 140px) * 1100 / 620)); min-width: min(100%, 480px); margin-inline: auto; border: 1px solid #71847866; border-radius: 7px; overflow: hidden; box-shadow: 0 24px 60px #0005; background: #172a2c; }
+.instrument-bar { min-height: 78px; padding: 15px 25px; gap: 20px; background: #1b3031; }
+.instrument-bar > div { display: grid; gap: 7px; }
+.instrument-label { color: #98aca4; font-size: 9px; letter-spacing: 1.8px; }
+.instrument-label b { color: #d7bc82; margin-left: 10px; }
+.instrument-bar strong { font-family: monospace; font-size: 18px; font-weight: normal; letter-spacing: 1px; }
+.mission-instrument { flex: 1; }
+.mission-instrument strong { font-family: Georgia, serif; font-size: 20px; letter-spacing: 0; }
+#hull { color: #dfba76; letter-spacing: 0; font-size: 17px; white-space: nowrap; }
+.small-button { color: #d4d9c9; background: transparent; padding: 10px; border: 1px solid #73877a66; border-radius: 3px; font: 9px "Trebuchet MS", sans-serif; letter-spacing: 1px; cursor: pointer; white-space: nowrap; }
+.small-button span { margin-left: 10px; color: #d9b677; }
+button:hover { background-color: #dfb97722; }
+button:focus-visible, canvas:focus-visible { outline: 2px solid #f6cc83; outline-offset: -3px; }
+button:disabled { opacity: 0.4; cursor: default; }
+.viewport { position: relative; aspect-ratio: 1100 / 620; overflow: hidden; background: #bdd2cc; }
+canvas { width: 100%; height: 100%; display: block; outline: none; }
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; background: #172c3261; backdrop-filter: blur(2px); padding: 20px; }
+.overlay[hidden], [hidden] { display: none !important; }
+.briefing-card { width: min(540px, 90%); padding: 32px 38px 23px; background: #172c2fed; border: 1px solid #dcbf7c77; box-shadow: 0 12px 40px #0e22266b; text-align: center; border-radius: 3px; }
+.briefing-card .eyebrow { font-size: 9px; letter-spacing: 2px; }
+h2 { font: normal 40px Georgia, serif; letter-spacing: -1px; margin: 14px 0; color: #f0e9d8; }
+#overlay-body { font-size: 14px; line-height: 1.8; color: #c4d0c8; margin: 0; }
+.briefing-controls { display: flex; gap: 22px; justify-content: center; margin: 22px 0; font-size: 10px; color: #c2cbbc; letter-spacing: 1px; }
+kbd { display: inline-block; font: 10px monospace; min-width: 20px; text-align: center; padding: 4px 5px; border: 1px solid #aeb8a555; border-radius: 3px; color: #d8dece; }
+.launch-button { display: block; margin: 22px auto 16px; padding: 14px 24px; background: #dfb977; color: #1c2b2c; font: bold 13px "Trebuchet MS", sans-serif; border: 1px solid #edcc91; border-radius: 3px; cursor: pointer; letter-spacing: 0.3px; }
+.launch-button:hover { background: #f4d296; }
+.launch-button span { margin-left: 28px; }
+.footnote { color: #a8b7ac; font-size: 8px; letter-spacing: 1.2px; line-height: 1.8; margin-bottom: 0; }
+.canvas-caption { position: absolute; bottom: 14px; left: 20px; right: 20px; display: flex; justify-content: space-between; font: 9px monospace; letter-spacing: 1.2px; color: #f7edcfbb; pointer-events: none; text-shadow: 0 1px 3px #142426; }
+.mission-progress { height: 3px; background: #364c46; }
+#progress-fill { width: 0; height: 100%; background: #dfb977; transition: width 0.15s linear; }
+.flight-footer { padding: 14px 22px; font-size: 9px; letter-spacing: 1.1px; color: #b5c3b9; gap: 12px; }
+.flight-footer > :last-child { color: #dfb977; white-space: nowrap; }
+.page-footer { margin-top: 20px; gap: 12px; font-size: 8px; color: #a7b8ad; letter-spacing: 0.8px; }
+.page-footer p { margin: 0; }
+.page-footer span { margin: 0 8px; color: #a5b1a3; }
+.page-footer p:last-child { text-align: right; line-height: 2; }
+.page-footer p:last-child span { display: block; font-size: 8px; margin: 0; color: #a3b2a7; }
+.ace-banner { position: absolute; top: 29%; left: 0; right: 0; padding: 24px; background: #192c31e8; text-align: center; border-block: 1px solid #d6ad6a; pointer-events: none; }
+.ace-banner > span { font-size: 10px; color: #f1be7a; letter-spacing: 4px; }
+.ace-banner strong { display: block; font: 36px Georgia, serif; margin: 12px 0; }
+.ace-banner p { font-size: 13px; color: #cad3c6; }
+.boss-meter { position: absolute; top: 18px; right: 24px; width: 38%; pointer-events: none; }
+.boss-meter > div { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: 1px; margin-bottom: 5px; color: #3b3429; }
+#boss-phase { color: #703b30; }
+progress { display: block; width: 100%; height: 7px; border: 0; appearance: none; background: #263b3b55; }
+progress::-webkit-progress-bar { background: #263b3b55; }
+progress::-webkit-progress-value { background: #a44938; }
+progress::-moz-progress-bar { background: #a44938; }
+.damage-flash { position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 80px 30px #c8473888; opacity: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.noscript { color: #f5ca7f; }
+@media (max-width: 850px) {
+  main { padding: 18px; }
+  .edition, .intro, .best-instrument { display: none !important; }
+  .instrument-bar { padding: 12px; gap: 14px; }
+  .instrument-bar strong { font-size: 15px; }
+  .title-row { padding-block: 22px; }
+  .page-footer { flex-wrap: wrap; }
+  .page-footer p:last-child { text-align: left; }
+  .briefing-card { padding: 18px; }
+  h2 { font-size: 28px; margin: 8px 0; }
+  #overlay-body { font-size: 12px; }
+  .briefing-controls { margin: 12px 0; }
+  .launch-button { margin: 12px auto; padding: 10px 20px; }
+  .flight-footer { font-size: 8px; padding: 10px; }
+}
+@media (max-width: 520px) {
+  .briefing-controls, .footnote, .canvas-caption, #sound, #boss-phase { display: none; }
+  .briefing-card .eyebrow { font-size: 7px; }
+  h2 { font-size: 22px; }
+  .viewport { min-height: 280px; }
+  canvas { object-fit: contain; }
+  .instrument-bar { gap: 10px; }
+  .instrument-label { font-size: 7px; }
+  #hull { font-size: 12px; }
+  .mission-instrument strong { font-size: 16px; }
+  .flight-footer > :last-child { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
