@@ -74,6 +74,7 @@ def test_ace_arrival_victory_retry_and_best_score(page, game_url, tmp_path):
         }"""
     )
     expect(page.get_by_role("heading", name="Good flying. Stay sharp.")).to_be_visible()
+    expect(page.locator("#overlay-body")).to_contain_text("no repairs needed")
     expect(page.locator("#best")).to_have_text("001250")
     page.keyboard.press("Enter")
     expect(page.locator("#level")).to_have_text("02")

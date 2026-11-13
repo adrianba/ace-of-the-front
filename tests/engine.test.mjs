@@ -1,6 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { Game, HEIGHT, difficulty, seededRandom } from "../src/ace_of_the_front/static/engine.mjs";
+import { Game, HEIGHT, MAX_HULL, difficulty, repairNote, seededRandom } from "../src/ace_of_the_front/static/engine.mjs";
+
+test("debrief repair note matches the hull actually restored", () => {
+  assert.match(repairNote(MAX_HULL), /no repairs needed/);
+  assert.match(repairNote(MAX_HULL - 1), /fully repair/);
+  assert.match(repairNote(MAX_HULL - 2), /fully repair/);
+  assert.match(repairNote(MAX_HULL - 3), /repair 2 hull points/);
+});
 
 function advance(game, seconds, input = {}) {
   for (let i = 0; i < Math.ceil(seconds * 120); i += 1) {

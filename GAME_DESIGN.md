@@ -26,7 +26,7 @@ hits, surprise instant kills, or historical knowledge required.
   period after damage, and a clear damage flash.
 - Patrols last roughly 40–50 seconds. A warning introduces the ace; escorts,
   bullets, and balloons clear so the duel is about the rival, not clutter.
-- Beat the ace to bank your score, repair two hull points, and choose to
+- Beat the ace to bank your score, repair up to two hull points, and choose to
   launch the next mission. On defeat, immediately retry the same mission
   with full hull and your previously banked score.
 

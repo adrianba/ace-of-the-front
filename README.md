@@ -29,7 +29,7 @@ public production hosting.
 
 Five hull points, unlimited ammunition and retries. Ace aiming lines show
 where shots **will** go: move off the line, then line up your return fire.
-Clearing a mission repairs two hull points. Defeat retries the current
+Clearing a mission repairs up to two hull points. Defeat retries the current
 mission with full hull; only score from completed missions is kept.
 Best score stays in this browser; campaign progress does not survive reload.
 

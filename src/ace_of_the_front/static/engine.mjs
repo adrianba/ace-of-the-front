@@ -1,6 +1,14 @@
 export const WIDTH = 1100;
 export const HEIGHT = 620;
 export const MAX_HULL = 5;
+export const REPAIR_HULL = 2;
+
+export function repairNote(health) {
+  const missing = MAX_HULL - health;
+  if (missing <= 0) return "Your airframe is untouched; no repairs needed.";
+  if (missing <= REPAIR_HULL) return "The ground crew will fully repair your airframe before your next sortie.";
+  return `The ground crew will repair ${REPAIR_HULL} hull points before your next sortie.`;
+}
 
 export const ACES = [
   { name: 'Otto "Needle" Weiss', short: "NEEDLE", tell: "One shot. One tell. Leave the amber line.", pattern: "aim", color: "#b65d43" },
@@ -86,7 +94,7 @@ export class Game {
   launch() {
     if (this.state === "debrief") {
       this.level += 1;
-      this.health = Math.min(MAX_HULL, this.health + 2);
+      this.health = Math.min(MAX_HULL, this.health + REPAIR_HULL);
     } else if (this.state === "gameover" || this.state === "briefing") {
       this.health = MAX_HULL;
     } else {

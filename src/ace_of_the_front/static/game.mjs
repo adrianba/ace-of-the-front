@@ -1,4 +1,4 @@
-import { Game, WIDTH, HEIGHT, MAX_HULL, groundHeight, treeAt, clamp } from "./engine.mjs";
+import { Game, WIDTH, HEIGHT, MAX_HULL, groundHeight, repairNote, treeAt, clamp } from "./engine.mjs";
 
 export const game = new Game();
 const $ = (id) => document.getElementById(id);
@@ -193,7 +193,7 @@ function syncUi() {
     } else if (game.state === "debrief") {
       $("overlay-kicker").textContent = `SORTIE ${String(game.level).padStart(2, "0")} / ACE DEFEATED`;
       $("overlay-title").textContent = "Good flying. Stay sharp.";
-      $("overlay-body").textContent = `${game.ace.name} is down. ${game.score.toLocaleString()} points banked. The ground crew will repair two hull points before your next sortie.`;
+      $("overlay-body").textContent = `${game.ace.name} is down. ${game.score.toLocaleString()} points banked. ${repairNote(game.health)}`;
       $("launch").textContent = "Fly the next sortie →";
       $("overlay-footnote").textContent = `ENTER TO CONTINUE · NEXT: ${game.level + 1 <= 4 ? "A NEW ACE" : "VETERAN PATROL"} · NO LIVES LIMIT`;
     } else if (game.state === "gameover") {
