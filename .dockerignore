@@ -1,0 +1,3 @@
+*
+!docker/nginx.conf
+!src/ace_of_the_front/static/

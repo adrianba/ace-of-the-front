@@ -58,3 +58,18 @@ real-browser smoke tests (installs a local Chromium browser):
 uv run playwright install chromium
 uv run pytest --browser-tests
 ```
+## Container
+
+Pushes to `main` that pass CI publish an image to
+`ghcr.io/adrianba/ace-of-the-front` (tags `latest` and `sha-<commit>`).
+It serves the game over plain HTTP on port 8080 with unprivileged nginx;
+put it behind a reverse proxy that terminates HTTPS. `/healthz` returns `ok`.
+
+```sh
+docker run --rm -p 8080:8080 ghcr.io/adrianba/ace-of-the-front:latest
+# or build locally
+docker build -t ace-of-the-front . && docker run --rm -p 8080:8080 ace-of-the-front
+```
+
+CI runs lint, engine tests, Python and Chromium browser tests, and an image
+smoke test on every push and pull request.
